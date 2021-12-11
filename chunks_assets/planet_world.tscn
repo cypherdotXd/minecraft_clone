@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://chunks_assets/planet_world.gd" type="Script" id=1]
+[ext_resource path="res://player_assets/player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ProceduralSky" id=3]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 3 )
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 2 )
+script = ExtResource( 1 )
+noise = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.390522, -0.920594, 0, 0.920594, 0.390522, 0, 5.86762, 0 )

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player_assets/player.gd" type="Script" id=1]
+[ext_resource path="res://player_assets/joyStick.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.133333, 0.129412, 0.203922, 1 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+speed = 20.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="SpringArm" type="SpringArm" parent="CameraPivot"]
+transform = Transform( 1, 2.11747e-08, 2.60311e-09, -2.11747e-08, 0.970224, 0.24221, 2.60311e-09, -0.24221, 0.970224, 0, 0, 0 )
+spring_length = 2.0
+
+[node name="Camera" type="Camera" parent="CameraPivot/SpringArm"]
+fov = 30.0
+
+[node name="JoyStick" parent="." instance=ExtResource( 2 )]
+
+[connection signal="use_move_vector" from="JoyStick" to="." method="_on_JoyStick_use_move_vector"]

@@ -1,0 +1,4 @@
+#Sat Dec 11 12:50:26 IST 2021
+base.0=/Users/ashishpatel/Desktop/New Game/android/build/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

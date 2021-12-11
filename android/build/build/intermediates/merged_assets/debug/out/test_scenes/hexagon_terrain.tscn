@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player_assets/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://test_scenes/hex_terrain.gd" type="Script" id=2]
+
+[node name="MeshInstance" type="MeshInstance"]
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38067, 0 )
+speed = 0.05
